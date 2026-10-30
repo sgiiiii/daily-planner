@@ -1,0 +1,24 @@
+# Держит бесплатный сервис Render «проснувшимся», чтобы ссылка открывалась
+# без 30–60-секундного холодного старта.
+#
+# Включение: Settings → Secrets and variables → Actions → Variables →
+# New repository variable: APP_URL = https://ваш-сервис.onrender.com
+name: Keep alive
+
+on:
+  schedule:
+    # Каждые 10 минут: Render засыпает после 15 минут без запросов.
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    if: vars.APP_URL != ''
+    runs-on: ubuntu-latest
+    steps:
+      - name: Проверить, что сервис отвечает
+        run: |
+          BASE="${{ vars.APP_URL }}"
+          # Убираем слэш на конце, если он случайно попал в переменную.
+          BASE="${BASE%/}"
+          curl -fsS --max-time 25 --retry 3 --retry-delay 5 "$BASE/api/health"

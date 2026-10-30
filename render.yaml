@@ -1,0 +1,28 @@
+# Render Blueprint: бесплатный веб-сервис + внешняя PostgreSQL (Neon).
+#
+# Как развернуть: https://render.com → New → Blueprint → выбрать репозиторий.
+# Render создаст сервис по этому файлу и попросит ввести DATABASE_URL.
+services:
+  - type: web
+    name: daily-planner
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app_wsgi:app --workers 1 --threads 8 --timeout 90 --bind 0.0.0.0:$PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # Строка подключения к PostgreSQL (Neon, Supabase или Render Postgres).
+      # Значение вводится в панели Render и не хранится в репозитории.
+      - key: DATABASE_URL
+        sync: false
+      # На публичном адресе демо-аккаунт не нужен: пользователи регистрируются сами.
+      - key: PLANNER_SEED_DEMO
+        value: "0"
+      # Фоновый перенос задач внутри веб-процесса.
+      - key: PLANNER_SCHEDULER
+        value: "1"
+      # HTTPS: cookie сессии получает флаг Secure.
+      - key: PLANNER_COOKIE_SECURE
+        value: "1"
