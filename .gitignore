@@ -1,0 +1,16 @@
+# Данные и служебные файлы
+data/
+*.db
+*.db-wal
+*.db-shm
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Сгенерированные артефакты
+/screenshots/
+pip-*/
+planner-tests-*/
+.pytest_cache/
+.DS_Store
