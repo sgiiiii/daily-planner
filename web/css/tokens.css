@@ -1,0 +1,153 @@
+/* ==========================================================================
+   Дизайн-токены «Планирование дня» (ЛР4: палитра, типографика, отступы, радиусы)
+   Семантические токены переключаются через [data-theme], поэтому светлая и
+   тёмная темы используют одни и те же имена переменных.
+   ========================================================================== */
+
+:root {
+  /* Примитивы — синий (primary, Hue 217°) */
+  --blue-100: #deeafc;
+  --blue-200: #b8d1f9;
+  --blue-300: #84b0f5;
+  --blue-400: #4c8bf0;
+  --blue-500: #1366ec;
+  --blue-600: #1056c6;
+  --blue-700: #0d46a0;
+  --blue-900: #08295e;
+
+  /* Примитивы — тил (secondary, Hue 174°) */
+  --teal-100: #d9f2ef;
+  --teal-300: #72cac1;
+  --teal-500: #46b9ad;
+  --teal-700: #307e76;
+  --teal-900: #1b4742;
+
+  /* Нейтральные */
+  --neutral-50: #f7f7f8;
+  --neutral-100: #ebedef;
+  --neutral-200: #d5d7dd;
+  --neutral-300: #b6bac3;
+  --neutral-400: #949ba8;
+  --neutral-500: #7b8390;
+  --neutral-600: #606876;
+  --neutral-700: #4e545f;
+  --neutral-800: #3a3f47;
+  --neutral-900: #2e3138;
+  --neutral-950: #1d2026;
+
+  /* Семантика — светлая тема */
+  --bg: var(--neutral-50);
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-2: var(--neutral-100);
+  --surface-3: #f2f3f5;
+  --border: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+  --text: var(--neutral-900);
+  --text-2: var(--neutral-700);
+  --muted: var(--neutral-600);
+  --action: var(--blue-500);
+  --action-hover: var(--blue-600);
+  --action-press: var(--blue-700);
+  --on-action: #ffffff;
+  --action-soft: var(--blue-100);
+  --focus: var(--blue-500);
+  --success: #27864a;
+  --success-bg: #e3f7eb;
+  --success-bd: #c4eed3;
+  --error: #b62a20;
+  --error-bg: #fdf3f2;
+  --error-bd: #f4c2be;
+  --warning: #a56c09;
+  --warning-bg: #fdf6e6;
+  --warning-bd: #f3e2b8;
+  --c-work: var(--blue-500);
+  --c-work-bg: var(--blue-100);
+  --c-study: var(--teal-700);
+  --c-study-bg: var(--teal-100);
+  --c-personal: #b37407;
+  --c-personal-bg: #fdf1dc;
+  --shadow-sm: 0 1px 2px rgba(46, 49, 56, 0.06);
+  --shadow-md: 0 6px 24px rgba(23, 32, 51, 0.08);
+  --shadow-lg: 0 16px 48px rgba(23, 32, 51, 0.16);
+
+  /* Типографика (Roboto, шкала ЛР4) */
+  --font: Roboto, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --fs-display: 36px;
+  --lh-display: 44px;
+  --fs-h1: 28px;
+  --lh-h1: 36px;
+  --fs-h2: 22px;
+  --lh-h2: 28px;
+  --fs-h3: 18px;
+  --lh-h3: 24px;
+  --fs-body: 16px;
+  --lh-body: 24px;
+  --fs-small: 14px;
+  --lh-small: 20px;
+  --fs-caption: 12px;
+  --lh-caption: 16px;
+
+  /* Отступы: базовая единица 4px */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Радиусы */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 999px;
+
+  --header-h: 72px;
+  --mobile-nav-h: 64px;
+  --tap: 44px;
+  --transition: 160ms ease;
+  color-scheme: light;
+}
+
+/* Тёмная тема */
+:root[data-theme="dark"] {
+  --bg: #14161a;
+  --bg-elevated: #1d2026;
+  --surface: #1d2026;
+  --surface-2: #272b32;
+  --surface-3: #2f343c;
+  --border: #3e434c;
+  --border-strong: #606876;
+  --text: #ebedef;
+  --text-2: #d5d7dd;
+  --muted: #a3a9b5;
+  --action: #84b0f5;
+  --action-hover: #b8d1f9;
+  --action-press: #deeafc;
+  --on-action: #08295e;
+  --action-soft: #0d2a55;
+  --focus: #b8d1f9;
+  --success: #69d390;
+  --success-bg: #12301f;
+  --success-bd: #1f6b3b;
+  --error: #eb948e;
+  --error-bg: #341a18;
+  --error-bd: #751b15;
+  --warning: #f5b547;
+  --warning-bg: #2e2412;
+  --warning-bd: #6b521f;
+  --c-work: #84b0f5;
+  --c-work-bg: #14263f;
+  --c-study: #72cac1;
+  --c-study-bg: #0f2f2c;
+  --c-personal: #f5b547;
+  --c-personal-bg: #2e2412;
+  --shadow-sm: none;
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 56px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}

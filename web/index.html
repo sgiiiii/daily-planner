@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Планирование дня — цифровой ежедневник</title>
+  <meta name="description" content="Цифровой ежедневник: единый список задач, приоритеты, автоматический перенос невыполненных дел и итоги дня.">
+  <meta name="theme-color" content="#1366EC">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <div class="auth__card" style="min-height:100vh">
+      <div class="stack" style="width:min(420px,100%);text-align:center;justify-items:center">
+        <div class="brand__mark" aria-hidden="true">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="muted">Загружаем «Планирование дня»…</p>
+      </div>
+    </div>
+  </div>
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <dialog id="modal" aria-modal="true"></dialog>
+  <noscript>
+    <p style="padding:24px">Для работы приложения включите JavaScript в браузере.</p>
+  </noscript>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
